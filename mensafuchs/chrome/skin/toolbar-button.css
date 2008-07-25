@@ -1,0 +1,23 @@
+#mensasidebar-button {
+    list-style-image: url("chrome://mensafuchs/skin/mug-32.png");
+}
+
+toolbar[iconsize="small"] #mensasidebar-button {
+  list-style-image: url("chrome://mensafuchs/skin/mug-16.png");
+}
+#prevDay {
+    list-style-image: url('chrome://mensafuchs/skin/leftarrow.png');
+}
+#nextDay {
+    list-style-image: url('chrome://mensafuchs/skin/rightarrow.png');
+}
+#settingsBtn {
+    list-style-image: url('chrome://mensafuchs/skin/settings.png');
+}
+#refreshBtn {
+    list-style-image: url('chrome://mensafuchs/skin/refresh.png');
+}
+
+#mensapanel {
+    list-style-image: url("chrome://mensafuchs/skin/mug-16.png");
+}

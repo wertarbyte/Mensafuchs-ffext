@@ -1,0 +1,9 @@
+content         mensafuchs      mensafuchs/chrome/content/
+skin            mensafuchs      classic/1.0     mensafuchs/chrome/skin/
+
+locale          mensafuchs      en-US           mensafuchs/locale/en-US/
+locale          mensafuchs      de-DE           mensafuchs/locale/de-DE/
+
+overlay chrome://browser/content/browser.xul chrome://mensafuchs/content/sidebar-overlay.xul
+overlay chrome://browser/content/browser.xul chrome://mensafuchs/content/mensafuchs-statusbar.xul
+style	chrome://global/content/customizeToolbar.xul chrome://mensafuchs/skin/toolbar-button.css

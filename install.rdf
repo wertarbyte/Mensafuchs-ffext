@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+        <Description about="urn:mozilla:install-manifest">
+                <em:id>{0158e1ea-a0f0-42cb-926e-8c51d9b6dcc7}</em:id>
+                <em:name>Mensafuchs</em:name>
+                <em:description>See what's for dinner at university today...</em:description>
+                <em:version>0.9.8</em:version>
+                <em:creator>Stefan Tomanek</em:creator>
+                <em:homepageURL>http://mensafuchs.de/</em:homepageURL>
+                <em:iconURL>chrome://mensafuchs/skin/mug-32.png</em:iconURL>
+                
+                <em:type>2</em:type>
+                <em:targetApplication>
+                        <Description>
+                        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                        <em:minVersion>1.5</em:minVersion>
+                        <em:maxVersion>3.0</em:maxVersion>
+                        </Description>
+                </em:targetApplication>
+
+                <em:updateURL>http://mensafuchs.de/ffext/update.rdf</em:updateURL>
+        </Description>
+</RDF>
+

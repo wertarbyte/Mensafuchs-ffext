@@ -1,0 +1,46 @@
+listbox#offerlist {
+    /*
+        background-image: url("chrome://mensafuchs/skin/gradient.png");
+        background-repeat: repeat-y;
+    */
+}
+
+listitem {
+    border-bottom: solid 1px #AA0000;
+}
+
+listitem label.mensaName {
+    text-align: right;
+    font-style: italic;
+    font-size: 80%;
+    border-bottom: solid 1px black;
+}
+
+listitem description.mealName {
+    padding-left: 1em;
+}
+
+listitem label.votes {
+    font-size: 70%;
+    text-align: right;
+}
+
+listitem image.mealPhoto {
+    border: solid 1px #AA0000;
+}
+
+label#offerdate {
+    text-align: center;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+
+#mensaGroup[hidden="true"] {
+    display: collapse;
+}
+
+listitem image.groupicon {
+    margin-left: 5px;
+    margin-right: 5px;
+}

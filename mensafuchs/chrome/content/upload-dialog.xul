@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+<!DOCTYPE page SYSTEM "chrome://mensafuchs/locale/mensafuchs.dtd">
+
+<dialog id="picture-upload" title="&confirm.caption;"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        buttons="cancel"
+        ondialogaccept="upload();"
+        ondialogcancel=""
+        onload="loadValues();">
+    
+    <stringbundle id="strings" src="chrome://mensafuchs/locale/mensafuchs.properties" />
+    <script src="upload.js" />
+
+    <description value="Do you want to upload a photo for this meal?"/>
+
+    <label id="date" value="(none)" />
+    <label id="mensa" value="(none)" />
+    <label id="meal" value="(none)" />
+
+    <hbox>
+        <html:form id="upload_form" action="http://www.mensafuchs.de/mensanet.pl" method="post" enctype="multipart/form-data">
+            <html:input type="hidden" name="upload_photo" value="y" />
+            <html:input id="offer_id" type="hidden" name="offer_id" value="" />
+            <html:input type="file" name="picture_data"/>
+            <html:input type="submit" onclick="window.close();"/>
+        </html:form>
+    </hbox>
+
+</dialog>

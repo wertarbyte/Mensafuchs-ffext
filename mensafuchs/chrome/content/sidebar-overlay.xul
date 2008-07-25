@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+
+<?xml-stylesheet href="chrome://mensafuchs/skin/toolbar-button.css" type="text/css"?>
+
+<overlay id="sidebarOverlay"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+        
+        <script src="mensafuchs.js" />
+
+	<menupopup id="viewSidebarMenu">
+		<menuitem key="key_openMensaSidebar" observes="viewMensaSidebar"  />
+	</menupopup>
+
+	<toolbarpalette id="BrowserToolbarPalette">
+		<toolbarbutton id="mensasidebar-button" class="toolbarbutton-1"
+			label="Mensafuchs" tooltiptext="Mensafuchs"
+			oncommand="toggleMensafuchs();"/>
+	</toolbarpalette>
+        <!--
+	<keyset id="mainKeyset">
+		<key id="key_openMensaSidebar" command="viewMensaSidebar"
+			key="&openDelSidebar.commandkey;" 
+			modifiers="&openDelSidebar.modifierskey;" />
+	</keyset>
+        -->
+
+	<broadcasterset id="mainBroadcasterSet"> 
+		<broadcaster id="viewMensaSidebar" 
+			label="Mensafuchs"
+			autoCheck="false"
+			type="checkbox"
+			group="sidebar"
+			sidebarurl="chrome://mensafuchs/content/mensafuchs-sidebar.xul"
+			sidebarTitle="Mensafuchs"
+			oncommand="toggleMensafuchs();" />
+	</broadcasterset>
+
+</overlay>

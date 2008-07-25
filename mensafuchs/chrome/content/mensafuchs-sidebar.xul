@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type"text/css" ?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css" ?>
+<?xml-stylesheet href="chrome://mensafuchs/skin/style.css" type="text/css" ?>
+<?xml-stylesheet href="chrome://mensafuchs/skin/toolbar-button.css" type="text/css" ?>
+
+<!DOCTYPE page SYSTEM "chrome://mensafuchs/locale/mensafuchs.dtd">
+
+<page id="sbMensaSidebar" title="&mensafuchs;"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+	onload = "updateMenu();"
+	onunload = "">
+        
+        <script src="mensafuchs.js" />
+        <script src="sidebar.js" />
+        <stringbundle id="strings" src="chrome://mensafuchs/locale/mensafuchs.properties" />
+        
+        <toolbox>
+            <toolbar id="nav-toolbar">
+                <toolbarbutton id="prevDay" oncommand="changeDay(-1);" disabled="true" tooltiptext="&prevBtn.label;" />
+                <label id="offerdate" flex="0"/>
+                <toolbarbutton id="nextDay" oncommand="changeDay(1);" disabled="true" tooltiptext="&nextBtn.label;"/>
+                <toolbarbutton id="refreshBtn" oncommand="updateMenu();" tooltiptext="&refreshBtn.label;"/>
+                <toolbarspacer flex="1" />
+                <toolbarbutton id="settingsBtn" oncommand="toggleSettings();" tooltiptext="&settings.label;"/>
+            </toolbar>
+        </toolbox>
+
+        <vbox flex="1">
+                <groupbox persist="hidden" id="mensaPanel">
+                    <label value="&settings.label;" />
+                    <groupbox>
+                        <label value="Mensen" />
+                        <checkbox id="showMensa-1" persist="checked" label="Hauptmensa Duisburg" />
+                        <checkbox id="showMensa-2" persist="checked" label="Mensa Bibliothek Duisburg" />
+                        <checkbox id="showMensa-3" persist="checked" label="Mensa B-Bereich" />
+                        <checkbox id="showMensa-4" persist="checked" label="Hauptmensa Essen" />
+                        <checkbox id="showMensa-5" persist="checked" label="Mensa Klinikum" />
+                        <checkbox id="showMensa-6" persist="checked" label="Uni Bochum" />
+                    </groupbox>
+                    <checkbox id="loadPictures" persist="checked" label="&settings.pictures;" />
+                    <checkbox id="skipWeekends" persist="checked" label="&skipWeekends.label;" />
+                </groupbox>
+            <!-- </vbox> -->
+
+            
+            <listbox style="visibility: collapse;">
+
+                 <listitem flex="0" id="offertemplate" popup="offerpopup" context="offerpopup" ondblclick="showDetailsPage();">
+                    <hbox>
+                        <vbox align="center">
+                            <image width="50" height="50" class="mealPicture" src="chrome://mensafuchs/skin/mug-50.png" />
+                            <hbox flex="1" >
+                                <vbox class="iconbox" flex="0" align="center" />
+                            </hbox>
+                        </vbox>
+                        <vbox flex="1">
+                            <label class="mensaName" value="mensa" />
+                            <description class="mealName"></description>
+                            <vbox flex="1">
+                                <spacer flex="1"/>
+                                <vbox>
+                                    <progressmeter class="ratingbar" value="0%" label="0%" flex="1" />
+                                </vbox>
+                                <label class="votes" value="0 Stimmen" />
+                            </vbox>
+                        </vbox>
+                    </hbox>
+                </listitem>
+
+            </listbox>
+
+            <listbox id="offerlist" flex="1">
+
+
+
+            </listbox>
+            
+            <label id="clickhint" value="&clickhint.label;" />
+
+            <popupset>
+                <menupopup id="offerpopup">
+                    <menuitem label="&detailsMenu.label;" onclick="showDetailsPage();"/>
+                    <menuitem label="&upload.label;" onclick="uploadPhoto();"/>
+                    <menuseparator />
+                    <menu label="&rateMenu.label;">
+                        <menupopup id="ratingpopup" onclick="rateOffer(event.target.getAttribute('value'));">
+                            <menuitem label="*****" value="5" />
+                            <menuitem label="****"  value="4"/>
+                            <menuitem label="***"   value="3"/>
+                            <menuitem label="**"    value="2"/>
+                            <menuitem label="*"     value="1"/>                               
+                        </menupopup>
+                    </menu>
+                </menupopup>
+            </popupset>
+            
+        </vbox>
+</page>

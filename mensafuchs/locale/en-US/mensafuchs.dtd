@@ -1,0 +1,20 @@
+<!ENTITY mensafuchs "MensaFox">
+<!ENTITY rateMenu.label "Rate">
+<!ENTITY detailsMenu.label "Details">
+<!ENTITY mensaLabel.label "Cafeterias to be shown:">
+<!ENTITY refreshBtn.label "Refresh">
+<!ENTITY nextBtn.label "Next">
+<!ENTITY prevBtn.label "Previous">
+
+<!ENTITY confirm.caption "Confirm rating">
+<!ENTITY confirm.message "Do you want the meal">
+<!ENTITY confirm.points "points">
+<!ENTITY confirm.comment "Comment">
+
+<!ENTITY settings.label "Settings">
+<!ENTITY settings.pictures "Load photos">
+
+<!ENTITY upload.label "Upload photo">
+<!ENTITY skipWeekends.label "Skip Weekends">
+
+<!ENTITY clickhint.label "Click on the offer you to rate">

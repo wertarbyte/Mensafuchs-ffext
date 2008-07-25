@@ -1,0 +1,21 @@
+<!ENTITY mensafuchs "Mensafuchs">
+<!ENTITY rateMenu.label "Bewerten">
+<!ENTITY detailsMenu.label "Details">
+<!ENTITY mensaLabel.label "Anzuzeigende Mensen:">
+<!ENTITY refreshBtn.label "Aktualisieren">
+<!ENTITY nextBtn.label "Tag vor">
+<!ENTITY prevBtn.label "Tag zurueck">
+
+
+<!ENTITY confirm.caption "Bewertung bestaetigen">
+<!ENTITY confirm.message "Moechten sie das Gericht bewerten?">
+<!ENTITY confirm.points "Punkte">
+<!ENTITY confirm.comment "Kommentar">
+
+<!ENTITY settings.label "Einstellungen">
+<!ENTITY settings.pictures "Photos laden">
+
+<!ENTITY upload.label "Photo hochladen">
+<!ENTITY skipWeekends.label "Wochenenden ueberspringen">
+
+<!ENTITY clickhint.label "Klicken Sie das zu bewertende Gericht an">
