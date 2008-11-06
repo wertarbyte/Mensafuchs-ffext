@@ -85,7 +85,7 @@ function menuReceived(data) {
     var odate = document.getElementById('offerdate');
 
     clearList(list);
-    for (var i=0; i < lines.length-1; i++) {
+    for (var i=0; i < lines.length; i++) {
         var offer = new MensaOffer(lines[i]);
         var photoCheckbox = document.getElementById('loadPictures');
         // enable back/forward button
@@ -97,7 +97,7 @@ function menuReceived(data) {
 
         var mensaCheckbox = document.getElementById('showMensa-'+offer.mensaId);
         // Check if we want to display the mensa
-        if ( mensaCheckbox.getAttribute("checked") == "true" ) {
+        if ( mensaCheckbox != null && mensaCheckbox.getAttribute("checked") == "true" ) {
             // var item = createNewItem(lines[i]);
 
             var item = offer.getListItem( (photoCheckbox.getAttribute("checked") == "true") );

@@ -30,6 +30,7 @@
         <vbox flex="1">
                 <groupbox persist="hidden" id="mensaPanel">
                     <label value="&settings.label;" />
+                    <!--
                     <groupbox>
                         <label value="Mensen" />
                         <checkbox id="showMensa-1" persist="checked" label="Hauptmensa Duisburg" />
@@ -39,6 +40,34 @@
                         <checkbox id="showMensa-5" persist="checked" label="Mensa Klinikum" />
                         <checkbox id="showMensa-6" persist="checked" label="Uni Bochum" />
                     </groupbox>
+                    -->
+                    <tabbox>
+                        <tabs>
+                            <tab label="Duisburg-Essen"/>
+                            <tab label="Aachen"/>
+                        </tabs>
+                        <tabpanels>
+                            <tabpanel orient="vertical">
+                                <checkbox id="showMensa-1" persist="checked" label="Hauptmensa Duisburg" />
+                                <checkbox id="showMensa-2" persist="checked" label="Mensa Bibliothek Duisburg" />
+                                <checkbox id="showMensa-3" persist="checked" label="Mensa B-Bereich" />
+                                <checkbox id="showMensa-4" persist="checked" label="Hauptmensa Essen" />
+                                <checkbox id="showMensa-5" persist="checked" label="Mensa Klinikum" />
+                            </tabpanel>
+                            <tabpanel orient="vertical">
+                                <checkbox id="showMensa-9" persist="checked" label="Mensa I" />
+                                <checkbox id="showMensa-10" persist="checked" label="Mensa II" />
+                                <checkbox id="showMensa-11" persist="checked" label="Mensa III" />
+                                <checkbox id="showMensa-12" persist="checked" label="Mensa Eups" />
+                                <checkbox id="showMensa-13" persist="checked" label="Gastro Goethe" />
+                                <checkbox id="showMensa-14" persist="checked" label="Mensa Ahorn 55" />
+                                <checkbox id="showMensa-15" persist="checked" label="Mensa Vita" />
+                                <checkbox id="showMensa-16" persist="checked" label="Bistro Templergraben" />
+                                <checkbox id="showMensa-17" persist="checked" label="Mensa IV Jülich" />
+                                <checkbox id="showMensa-18" persist="checked" label="Cafeteria I" />
+                            </tabpanel>
+                        </tabpanels>
+                    </tabbox>
                     <checkbox id="loadPictures" persist="checked" label="&settings.pictures;" />
                     <checkbox id="skipWeekends" persist="checked" label="&skipWeekends.label;" />
                 </groupbox>

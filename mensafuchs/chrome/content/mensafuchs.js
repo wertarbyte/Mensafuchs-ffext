@@ -252,7 +252,9 @@ function MensaOffer(line) {
         };
 
         if (me.newMeal == "1") {
-               iconbox.appendChild(getIcon("new"));
+            var newIcon = getIcon("new");
+            alert("Neu!"+newIcon);
+            iconbox.appendChild(newIcon);
         }
 
         for (var i=0; i < me.groups.length; i++) {
@@ -269,8 +271,6 @@ function MensaOffer(line) {
             }
             if (iname != "") {
                iconbox.appendChild(getIcon(iname));
-            } else {
-                alert(group+" vs. Geflügel");
             }
         }
 
