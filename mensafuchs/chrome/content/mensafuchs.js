@@ -253,7 +253,6 @@ function MensaOffer(line) {
 
         if (me.newMeal == "1") {
             var newIcon = getIcon("new");
-            alert("Neu!"+newIcon);
             iconbox.appendChild(newIcon);
         }
 
