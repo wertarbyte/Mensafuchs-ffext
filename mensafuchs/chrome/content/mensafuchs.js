@@ -139,6 +139,15 @@ function PictureUploadRequest(uploadCallback, offerId) {
     };
 }
 
+function getIcon(name) {
+    var pic = document.createElement("image");
+    pic.setAttribute("width", "24");
+    pic.setAttribute("height", "24");
+    pic.setAttribute("class", "groupicon");
+    pic.setAttribute("src", "chrome://mensafuchs/skin/"+name);
+    return pic;
+}
+
 function MensaOffer(line) {
     var fields = line.split(";");
 
@@ -195,7 +204,7 @@ function MensaOffer(line) {
     };
     
     this.getListItem = function (withPicture) {
-        var strbundle=document.getElementById("strings");
+        var strbundle = document.getElementById("strings");
         var template = document.getElementById("offertemplate");
 
         var node = template.cloneNode(true);
@@ -242,20 +251,6 @@ function MensaOffer(line) {
         }
         */
 
-        var getIcon = function(name) {
-            var pic = document.createElement("image");
-            pic.setAttribute("width", "24");
-            pic.setAttribute("height", "24");
-            pic.setAttribute("class", "groupicon");
-            pic.setAttribute("src", "chrome://mensafuchs/skin/"+iname);
-            return pic;
-        };
-
-        if (me.newMeal == "1") {
-            var newIcon = getIcon("new");
-            iconbox.appendChild(newIcon);
-        }
-
         for (var i=0; i < me.groups.length; i++) {
             var group = me.groups[i];
             var iname = "";
@@ -269,8 +264,13 @@ function MensaOffer(line) {
                 case "Lamm": iname = "sheep-icon.png"; break;
             }
             if (iname != "") {
-               iconbox.appendChild(getIcon(iname));
+               var icon = getIcon(iname);
+               iconbox.appendChild(icon);
             }
+        }
+        if (me.newMeal == "1") {
+            var newIcon = getIcon("new-icon.png");
+            iconbox.appendChild(newIcon);
         }
 
         return node;

@@ -44,6 +44,7 @@
                     <tabbox>
                         <tabs>
                             <tab label="Duisburg-Essen"/>
+                            <tab label="Bochum"/>
                             <tab label="Aachen"/>
                         </tabs>
                         <tabpanels>
@@ -53,6 +54,12 @@
                                 <checkbox id="showMensa-3" persist="checked" label="Mensa B-Bereich" />
                                 <checkbox id="showMensa-4" persist="checked" label="Hauptmensa Essen" />
                                 <checkbox id="showMensa-5" persist="checked" label="Mensa Klinikum" />
+                            </tabpanel>
+                            <tabpanel orient="vertical">
+                                <checkbox id="showMensa-6" persist="checked" label="Ruhr-Universität Bochum" />
+                                <checkbox id="showMensa-7" persist="checked" label="FH Gelsenkirchen" />
+                                <checkbox id="showMensa-19" persist="checked" label="FH Recklinghausen" />
+                                <checkbox id="showMensa-20" persist="checked" label="FH Bocholt" />
                             </tabpanel>
                             <tabpanel orient="vertical">
                                 <checkbox id="showMensa-9" persist="checked" label="Mensa I" />
