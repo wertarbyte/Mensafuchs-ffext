@@ -11,7 +11,6 @@ function getFirstElementByClass(node, searchClass) {
     return null;
 }
 
-// OOP with Javascript is such a pain
 function MensaMenuRequest(date, menuCallback) {
     this.http_request = new XMLHttpRequest();
 
@@ -22,7 +21,6 @@ function MensaMenuRequest(date, menuCallback) {
 
     this.http_request.onreadystatechange = function() {
         if (me.http_request.readyState == 4) {
-            // WTF?! The script dies when this method is called as a callback method - WHY?
             if (me.http_request.status == 200) {
                 var data = me.http_request.responseText;
                 if (me.menuCallback) {
@@ -48,7 +46,6 @@ function MensaRatingRequest(ratingCallback, offerId) {
     this.http_request.onreadystatechange = function () {
         var http = me.http_request;
         if (http.readyState == 4) {
-            // WTF?! The script dies when this method is called as a callback method - WHY?
             if (http.status == 200) {
                 if (me.ratingCallback) {
                     me.ratingCallback();
@@ -61,81 +58,6 @@ function MensaRatingRequest(ratingCallback, offerId) {
         var url = "http://mensafuchs.de/ratingHandler.pl?tool=ffext&score-"+me.offerId+"="+score+"&comment="+escape(comment);
         me.http_request.open('GET', url, true);
         me.http_request.send(null);
-    };
-}
-
-function PictureUploadRequest(uploadCallback, offerId) {
-    this.http_request = new XMLHttpRequest();
-    this.offerId = offerId;
-    this.uploadCallback = uploadCallback;
-
-    var me = this;
-
-    this.http_request.onreadystatechange = function () {
-        var http = me.http_request;
-        if (http.readyState == 4) {
-            // WTF?! The script dies when this method is called as a callback method - WHY?
-            if (http.status == 200) {
-                if (me.uploadCallback) {
-                    me.uploadCallback();
-                }
-            }
-        }
-    };
-    
-    // FIXME Does not work!
-    this.upload = function (picture) {
-        var url = "http://mensafuchs.de/mensanet.pl";
-        /*
-        me.http_request.open('POST', url, false);
-        me.http_request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        var param = "upload_photo=y&offer_id="+me.offerId+"&picture_data="+escape(picture);
-        me.http_request.send(param);
-        */
-
-        // prepare the MIME POST data
-        var boundaryString = 'capitano';
-        var boundary = '--' + boundaryString;
-        /*
-        var requestbody = boundary + '\n' 
-        + 'Content-Disposition: form-data; name="upload_photo"' + '\n' 
-        + '\n' 
-        + "y" + '\n' 
-        + '\n' 
-        + boundary + '\n' 
-        + 'Content-Disposition: form-data; name="offer_id"' + '\n' 
-        + '\n' 
-        + me.offerId + '\n' 
-        + '\n' 
-        + boundary + '\n'
-        + 'Content-Disposition: form-data; name="picture_data"\n' 
-        //+ 'Content-Type: application/octet-stream' + '\n' 
-        + 'Content-Type: text/html' + '\n' 
-        + '\n'
-        + picture
-        + '\n'
-        + boundary;
-        */
-        var body = "-----------------------------6115642113883782551562389454\n"
-                 + 'Content-Disposition: form-data; name="picture_data"; filename="picture.jpg"'+"\n"
-                 // + 'Content-Type: image/jpeg'+"\n"
-                 + 'Content-Type: application/octet-stream'+"\n"
-                 //+ 'Content-Transfer-Encoding: binary'+"\n\n"
-                 + escape(picture) + "\n"
-                 + "-----------------------------6115642113883782551562389454\n"
-                 + 'Content-Disposition: form-data; name="upload_photo"'+"\n\n"
-                 + "y\n"
-                 + "-----------------------------6115642113883782551562389454\n"
-                 + 'Content-Disposition: form-data; name="offer_id"'+"\n\n"
-                 + me.offerId+"\n"
-                 + "-----------------------------6115642113883782551562389454--";
-
-        // do the AJAX request
-        me.http_request.open('POST', url, false);
-        me.http_request.setRequestHeader('Content-Type', 'multipart/form-data; boundary=---------------------------6115642113883782551562389454');
-        //me.http_request.setRequestHeader("Connection", "close");
-        //me.http_request.setRequestHeader("Content-Length", body.length);
-        me.http_request.send(body);
     };
 }
 
@@ -180,13 +102,6 @@ function MensaOffer(line) {
         rate.placeRating(score, comment);
     };
     
-    /*
-    this.uploadPicture = function(picture, callback) {
-       var req = new PictureUploadRequest(callback, me.id);
-       req.upload(picture);
-    };
-    */
-
     this.getUploadUrl = function () {
         return "http://mensafuchs.de/upload-"+me.id;
     };

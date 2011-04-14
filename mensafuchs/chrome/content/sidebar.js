@@ -29,27 +29,12 @@ function rateOffer(score) {
 
     var offer = getSelectedOffer();
     var comment = "";
-    //offer.rate(score, comment, ratingPlaced);
-    //confirmationCallback(true, offer, score, comment);
     if (mensaOpened(offer)) {
         window.openDialog("chrome://mensafuchs/content/confirmation-dialog.xul", "Confirm", "chrome", ratingPlaced, offer, score);
     } else {
         alert(strbundle.getString("notServedYet"));
     }
 }
-
-
-
-/*
-// In a perfect world this should work: However, XmlHttpRequest
-// does _not_ work from a callback method, so the confirmation
-// dialog has to do the rating itself
-function confirmationCallback(confirmed, offer, score, comment) {
-    if (confirmed) {
-        offer.rate(score, comment, ratingPlaced);
-    }
-}
-*/
 
 function statusbarIconClicked(ev) {
     if (ev.button == 0) {
@@ -72,7 +57,6 @@ function toggleMensafuchs() {
 function clearList(list) {
     var n = list.getRowCount();
     for (var i=0; i < n; i++) {
-        // list.removeItemAt(0);
         var node = list.getItemAtIndex(0);
         list.removeChild(node);
     }
@@ -177,49 +161,9 @@ function changeDay(days) {
 
 function uploadPhoto() {
     var offer = getSelectedOffer();
-    // window.openDialog("chrome://mensafuchs/content/upload-dialog.xul", "Confirm", "chrome", offer);
     var url = offer.getUploadUrl();
     openTab(url);
 }
-
-/*
-function uploadPhoto() {
-    var nsIFilePicker = Components.interfaces.nsIFilePicker;
-    var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-    fp.init(window, "Select a File", nsIFilePicker.modeOpen);
-    // fp.appendFilters(nsIFilePicker.filterImages);
-    // fp.appendFilter("JPEG","*.jpg; *.jpeg");
-    
-    var res = fp.show();
-    if (res == nsIFilePicker.returnOK) {
-        var thefile = fp.file;
-
-        var offer = getSelectedOffer();
-        offer.uploadPicture( readFile(thefile), uploadSucceeded );
-    }
-}
-
-function uploadSucceeded() {
-    alert("Done!");
-}
-function readFile(file) {
-    // open the local file
-    stream = Components.classes["@mozilla.org/network/file-input-stream;1"]
-            .createInstance(Components.interfaces.nsIFileInputStream);
-    stream.init(file,       0x01, 00004, null);
-    var bstream =  Components.classes["@mozilla.org/network/buffered-input-stream;1"]
-            .getService();
-    bstream.QueryInterface(Components.interfaces.nsIBufferedInputStream);
-    bstream.init(stream, 1000);
-    bstream.QueryInterface(Components.interfaces.nsIInputStream);
-    binary = Components.classes["@mozilla.org/binaryinputstream;1"]
-            .createInstance(Components.interfaces.nsIBinaryInputStream);
-    binary.setInputStream (stream);
-    var data = binary.readBytes(binary.available());
-    alert(data.length+" bytes read");
-    return data;
-}
-*/
 
 function toggleSettings() {
     var panel = document.getElementById("mensaPanel");
